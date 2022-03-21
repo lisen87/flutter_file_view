@@ -166,14 +166,12 @@ class _NetworkFileViewerState extends State<NetworkFileViewer> {
           textAlign: TextAlign.center,
           style: widget.fileNameStyle ??
               Theme.of(context)
-                  .textTheme
-                  .titleMedium
-                  ?.copyWith(fontWeight: FontWeight.bold),
+                  .textTheme.bodyText1,
         ),
       ),
       Text(
         fileSize,
-        style: widget.fileSizeStyle ?? Theme.of(context).textTheme.bodyMedium,
+        style: widget.fileSizeStyle ?? Theme.of(context).textTheme.bodyText1,
       ),
     ];
   }

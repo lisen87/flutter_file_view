@@ -15,6 +15,7 @@ class LocalFileViewer extends StatefulWidget {
   const LocalFileViewer({
     Key? key,
     required this.filePath,
+    this.width = 0,
     this.placeholder,
     this.unsupportedPlatformWidget,
     this.nonExistentWidget,
@@ -26,6 +27,7 @@ class LocalFileViewer extends StatefulWidget {
 
   /// Path to local file
   final String filePath;
+  final int width;
 
   /// Widget displayed while the target [filePath] is loading.
   final Widget? placeholder;
@@ -116,6 +118,7 @@ class _LocalFileViewerState extends State<LocalFileViewer> {
     return AndroidView(
       viewType: viewName,
       creationParams: <String, dynamic>{
+        'width': widget.width,
         'filePath': filePath,
         'fileType': fileType,
         'is_bar_show': widget.isBarShow,

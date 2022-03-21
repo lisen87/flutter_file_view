@@ -2,11 +2,11 @@ package com.file.view
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import com.tencent.smtt.sdk.TbsReaderView
 import com.tencent.smtt.sdk.TbsReaderView.*
-import io.flutter.Log
 import io.flutter.plugin.platform.PlatformView
 import java.io.File
 
@@ -70,9 +70,12 @@ class LocalFileViewer internal constructor(context: Context, args: Map<String, A
 
     init {
         Log.i(TAG, "$TAG Start")
-
+        var width = args["width"] as Int
+        if (width <= 0){
+            width = -1
+        }
         mTbsReaderView.layoutParams = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
+            width,
             ViewGroup.LayoutParams.MATCH_PARENT
         )
 
