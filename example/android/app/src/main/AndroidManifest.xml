@@ -2,7 +2,6 @@
     package="com.file.view.example">
 
     <application
-        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:label="文件视图example"
         android:networkSecurityConfig="@xml/network_security_config"

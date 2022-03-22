@@ -69,14 +69,25 @@ class LocalFileViewer internal constructor(context: Context, args: Map<String, A
     }
 
     init {
+
+        val density = context.resources.displayMetrics.density
+
         Log.i(TAG, "$TAG Start")
         var width = args["width"] as Int
-        if (width <= 0){
-            width = -1
+        var height = args["height"] as Int
+        width = if (width <= 0){
+            -1
+        }else{
+            (width * density).toInt()
+        }
+        height = if (height <= 0){
+            -1
+        }else{
+            (height * density).toInt()
         }
         mTbsReaderView.layoutParams = ViewGroup.LayoutParams(
             width,
-            ViewGroup.LayoutParams.MATCH_PARENT
+            height
         )
 
         if (isSupportFile(args["fileType"] as String?)) openFile(args)

@@ -89,6 +89,12 @@ class _HomePageState extends State<HomePage> {
 
         final child = ElevatedButton(
           onPressed: () {
+            Size size = MediaQuery
+                .of(context)
+                .size;
+
+            print(size.height.toString()+" == "+size.width.toString());
+
             if (filePath.contains('http://') || filePath.contains('https://')) {
               onNetworkTap(title, type, filePath);
             } else {
